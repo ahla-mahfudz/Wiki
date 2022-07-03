@@ -1,0 +1,19 @@
+body {
+    background-color: palegoldenrod;
+}
+
+main {
+    padding: 2px;
+    border: 1px dotted black;
+    font-size: 80%;
+    font-family: cursive;
+}
+
+main h1::before,
+main h2::before,
+main h3::before,
+main h4::before,
+main h5::before,
+main h6::before {
+    content: "# ";
+}

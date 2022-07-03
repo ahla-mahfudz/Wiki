@@ -2,10 +2,12 @@
 <html>
 <head>
     <title><%= title_page %></title>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
+
+    <h1><%= wiki.wiki_file %></h1>
     <main>
-        <h1>File Name = <%= wiki.wiki_file %></h1>
         <%- wiki.wiki %> 
     </main>
     <section>
@@ -14,25 +16,26 @@
             <h1>Folders</h1>
             <div>
                 <% const urls = wiki.active_path.split("/"); %>
-                <a href="?path=/">/</a>
                 <% for (let i = 0; i < urls.length; i++) { %>
-                    <a href="?path=<%= urls.slice(0, i).join('/') + '/' + urls[i] %>"><%= urls[i] %></a>
+                    <a href="?path=<%= urls.slice(0, i).join('/') + '/' + urls[i] %>"><%= urls[i] %>/</a>
                 <% } %>
             </div>
-        <ul>
+        <ol>
             <% wiki.folders.forEach(e => { %>
                 <li><a href="?path=<%= wiki.active_path + '/' + e %>"><%= e %></a></li>
             <% }) %>
-        </ul>
+        </ol>
         </section>
         <section>
             <h1>Files</h1>
-            <ul>
+            <ol>
                 <% wiki.files.forEach(e => { %>
                     <li><a href="?path=<%= wiki.active_path %>&wiki=<%= e %>"><%= e %></a></li>
                 <% }) %>
-            </ul>
+            </ol>
         </section>
     </section>
+
+    <script src="/static/js/scripts.js"></script>
 </body>
 </html>
