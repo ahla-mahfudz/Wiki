@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title_page %></title>
+</head>
+<body>
+    <main>
+        <h1>File Name = <%= wiki.wiki_file %></h1>
+        <%- wiki.wiki %> 
+    </main>
+    <section>
+        <hr>
+        <section>
+            <h1>Folders</h1>
+            <div>
+                <% const urls = wiki.active_path.split("/"); %>
+                <a href="?path=/">/</a>
+                <% for (let i = 0; i < urls.length; i++) { %>
+                    <a href="?path=<%= urls.slice(0, i).join('/') + '/' + urls[i] %>"><%= urls[i] %></a>
+                <% } %>
+            </div>
+        <ul>
+            <% wiki.folders.forEach(e => { %>
+                <li><a href="?path=<%= wiki.active_path + '/' + e %>"><%= e %></a></li>
+            <% }) %>
+        </ul>
+        </section>
+        <section>
+            <h1>Files</h1>
+            <ul>
+                <% wiki.files.forEach(e => { %>
+                    <li><a href="?path=<%= wiki.active_path %>&wiki=<%= e %>"><%= e %></a></li>
+                <% }) %>
+            </ul>
+        </section>
+    </section>
+</body>
+</html>
