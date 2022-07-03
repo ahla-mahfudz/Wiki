@@ -5,11 +5,21 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-
-    <h1><%= wiki.wiki_file %></h1>
+    <h1><%= wiki.wiki_file_name %></h1>
     <main>
-        <%- wiki.wiki %> 
+        <%- wiki.converted %>
     </main>
+    <section>
+        <button onclick="btn_edit()">Edit</button>
+        <div id="editor" class="d-none">
+            <form method="POST">
+                <br>
+                <input type="submit" value="Submit">
+                <textarea name="editor"><%= wiki.origin %></textarea>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+    </section>
     <section>
         <hr>
         <section>

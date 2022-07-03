@@ -5,4 +5,9 @@ const hr_after_head = () => {
     }
 }
 
+const btn_edit = () => {
+    const editor = document.getElementById("editor");
+    editor.classList.toggle("d-none");
+}
+
 hr_after_head();

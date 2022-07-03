@@ -2,7 +2,9 @@ const fs = require("fs");
 const path = require("path")
 const markdown = require("markdown").markdown;
 
-const read_file = file => fs.readFileSync(file).toString();
+const read_file = file => fs.readFileSync(file).toString().trim();
+const write_file = (file, content) => fs.writeFileSync(file, content);
+
 
 const ls = (dir, extname=false, isFolder=false) => {
     let data = fs.readdirSync(dir);
@@ -16,4 +18,4 @@ const ls = (dir, extname=false, isFolder=false) => {
 
 const convert_md = string => markdown.toHTML(string);
 
-module.exports = {read_file, ls, convert_md}
+module.exports = {read_file, write_file, ls, convert_md}
