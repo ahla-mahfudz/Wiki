@@ -5,23 +5,9 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <h1><%= wiki.wiki_file_name %></h1>
-    <main>
-        <%- wiki.converted %>
-    </main>
-    <section>
-        <button onclick="btn_edit()">Edit</button>
-        <div id="editor" class="d-none">
-            <form method="POST">
-                <br>
-                <input type="submit" value="Submit">
-                <textarea name="editor"><%= wiki.origin %></textarea>
-                <input type="submit" value="Submit">
-              </form>
-        </div>
-    </section>
-    <section>
-        <hr>
+
+    <button onclick="btn_display('nav')">Nav</button>
+    <nav id="nav">
         <section>
             <h1>Folders</h1>
             <div>
@@ -44,6 +30,21 @@
                 <% }) %>
             </ol>
         </section>
+    </nav>
+    <h1><%= wiki.wiki_file_name %></h1>
+    <main>
+        <%- wiki.converted %>
+    </main>
+    <section>
+        <button onclick="btn_display('editor')">Edit</button>
+        <div id="editor" class="d-none">
+            <form method="POST">
+                <br>
+                <input type="submit" value="Submit">
+                <textarea name="editor"><%= wiki.origin %></textarea>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
     </section>
 
     <script src="/static/js/scripts.js"></script>

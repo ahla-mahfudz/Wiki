@@ -8,7 +8,7 @@ const app = express();
 
 const utils = require("./core/utils");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || process.env.DEFAULT_PORT;
 const WIKI_FOLDER = process.env.WIKI_FOLDER;
 
 app.use(bodyParser.urlencoded({ extended: true }));
